@@ -21,9 +21,10 @@ public class JDBC {
 
         try {
             Class.forName(JDBC_DRIVER);
+
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM AHMAD.EMPLOYEE");
+            ResultSet result = statement.executeQuery("SELECT * FROM AHMAD.PERFORMANCE");
             ResultSetMetaData resultSetMetaData = result.getMetaData();
 
             List<String> columns = new ArrayList<>(resultSetMetaData.getColumnCount());
