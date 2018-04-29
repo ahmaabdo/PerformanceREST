@@ -35,9 +35,9 @@ public class EmployeesResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{employeeId}")
-    public Employee getEmployee(@PathParam("employeeId") long emp_no) {
-         return empService.getEmployee(emp_no);
+    @Path("/{employeeUserName}")
+    public Employee getEmployee(@PathParam("employeeUserName") String username) {
+         return empService.getEmployee(username);
     }
 
     /**
@@ -55,19 +55,19 @@ public class EmployeesResource {
     }
 
     @PUT
-    @Path("/{employeeId}")
+    @Path("/{employeeUserName}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Employee updateEmployee(@PathParam("employeeId") long emp_no, Employee employee) {
-        employee.setEmp_no(emp_no);
+    public Employee updateEmployee(@PathParam("employeeUserName") String username, Employee employee) {
+        employee.setUsername(username);
         return empService.updateEmployee(employee);
     }
 
     @DELETE
-    @Path("/{employeeId}")
+    @Path("/{employeeUserName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void removeEmployee(@PathParam("employeeId") long emp_no) {
-        empService.removeEmployee(emp_no);
+    public void removeEmployee(@PathParam("employeeUserName") String username) {
+        empService.removeEmployee(username);
     }
 
 }

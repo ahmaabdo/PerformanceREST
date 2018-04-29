@@ -8,14 +8,14 @@ import java.util.Map;
 
 public class Database {
 
-    private static Map<Long, Employee> employee = new HashMap<>();
-    private static Map<Long, Performance> performance = new HashMap<>();
+    private static Map<String, Employee> employee = new HashMap<>();
+    private static Map<String, Performance> performance = new HashMap<>();
 
-    public static Map<Long, Employee> getEmployee() {
+    public static Map<String, Employee> getEmployee() {
         return employee;
     }
 
-    public static Map<Long, Performance> getPerformance() {
+    public static Map<String, Performance> getPerformance() {
         return performance;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class EmployeesService {
 
-    private Map<Long, Employee> employees = Database.getEmployee();
+    private Map<String, Employee> employees = Database.getEmployee();
 
     public EmployeesService() {
     }
@@ -18,25 +18,21 @@ public class EmployeesService {
         return new ArrayList<>(employees.values());
     }
 
-    public Employee getEmployee(long id) {
-        return employees.get(id);
+    public Employee getEmployee(String username) {
+        return employees.get(username);
     }
 
     public Employee addEmployee(Employee employee) {
-        employee.setEmp_no(employees.size() + 1);
-        employees.put(employee.getEmp_no(), employee);
+        employees.put(employee.getUsername(), employee);
         return employee;
     }
 
     public Employee updateEmployee(Employee employee) {
-        if (employee.getEmp_no() <= 0) {
-            return null;
-        }
-        employees.put(employee.getEmp_no(), employee);
+        employees.put(employee.getUsername(), employee);
         return employee;
     }
 
-    public Employee removeEmployee(long emp_no) {
-        return employees.remove(emp_no);
+    public Employee removeEmployee(String username) {
+        return employees.remove(username);
     }
 }

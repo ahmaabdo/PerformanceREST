@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 
 
 @Path("/performances")
-public class PerformenceResource {
+public class PerformanceResource {
 
     PerformanceService perfService = new PerformanceService();
 
@@ -36,9 +36,9 @@ public class PerformenceResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{performanceId}")
-    public Performance getPerformance(@PathParam("performanceId") long emp_no) {
-        return perfService.getPerformance(emp_no);
+    @Path("/{employeeUserName}")
+    public Performance getPerformance(@PathParam("employeeUserName")  String username) {
+        return perfService.getPerformance(username);
     }
 
     /**
@@ -56,19 +56,19 @@ public class PerformenceResource {
     }
 
     @PUT
-    @Path("/{performanceId}")
+    @Path("/{employeeUserName}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Performance updatePerformance(@PathParam("performanceId") long emp_no, Performance per) {
-        per.setEmp_no(emp_no);
+    public Performance updatePerformance(@PathParam("employeeUserName") String username, Performance per) {
+        per.setUsername(username);
         return perfService.updatePerformance(per);
     }
 
     @DELETE
-    @Path("/{performanceId}")
+    @Path("/{employeeUserName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void removePerformance(@PathParam("performanceId") long emp_no) {
-        perfService.removePerformance(emp_no);
+    public void removePerformance(@PathParam("employeeUserName") String username) {
+        perfService.removePerformance(username);
     }
 
 

@@ -7,19 +7,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Performance {
 
     private String comments;
-    private long emp_no;
+    private String username;
     private int job_know;
     private int work_quality;
     private int attitude;
     private int com_skills;
     private int dependability;
 
-    public Performance( ) { 
+    public Performance() {
     }
 
-    public Performance(String comments, long emp_no, int job_know, int work_quality, int attitude, int com_skills, int dependability) {
+    public Performance(String comments, String username, int job_know, int work_quality, int attitude, int com_skills, int dependability) {
         this.comments = comments;
-        this.emp_no = emp_no;
+        this.username = username;
         this.job_know = job_know;
         this.work_quality = work_quality;
         this.attitude = attitude;
@@ -35,12 +35,12 @@ public class Performance {
         this.comments = comments;
     }
 
-    public long getEmp_no() {
-        return emp_no;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmp_no(long emp_no) {
-        this.emp_no = emp_no;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getJob_know() {

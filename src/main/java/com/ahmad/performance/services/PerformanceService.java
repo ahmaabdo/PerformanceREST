@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class PerformanceService {
 
-    private Map<Long, Performance> performances = Database.getPerformance(); 
+    private Map<String, Performance> performances = Database.getPerformance();
 
     public PerformanceService() {
     }
@@ -18,25 +18,22 @@ public class PerformanceService {
         return new ArrayList<>(performances.values());
     }
 
-    public Performance getPerformance(long emp_no) {
-        return performances.get(emp_no);
+    public Performance getPerformance(String username) {
+        return performances.get(username);
     }
 
     public Performance addPerformance(Performance performance) {
-        performance.setEmp_no(performances.size() + 1);
-        performances.put(performance.getEmp_no(), performance);
+        performances.put(performance.getUsername(), performance);
         return performance;
     }
 
     public Performance updatePerformance(Performance performance) {
-        if (performance.getEmp_no() <= 0) {
-            return null;
-        }
-        performances.put(performance.getEmp_no(), performance);
+
+        performances.put(performance.getUsername(), performance);
         return performance;
     }
 
-    public Performance removePerformance(long emp_no) {
-        return performances.remove(emp_no);
+    public Performance removePerformance(String username) {
+        return performances.remove(username);
     }
 }

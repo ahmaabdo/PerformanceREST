@@ -16,21 +16,14 @@ public class Employee {
 
     }
 
-    public Employee(long emp_no, String first_name, String last_name, String username, int salary) {
-        this.emp_no = emp_no;
+    public Employee(String first_name, String last_name, String username, int salary) {
+
         this.first_name = first_name;
         this.last_name = last_name;
         this.username = username;
         this.salary = salary;
     }
 
-    public long getEmp_no() {
-        return emp_no;
-    }
-
-    public void setEmp_no(long emp_no) {
-        this.emp_no = emp_no;
-    }
 
     public String getFirst_name() {
         return first_name;
