@@ -4,6 +4,7 @@ import com.ahmad.performance.models.Employee;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -102,7 +103,13 @@ public class EmployeesService {
                     + employee.getLast_name() + "', '"
                     + employee.getSalary() + "' )";
 
-                result = statement.executeQuery(insertTableSQL);
+            PreparedStatement st = connection.prepareStatement("INSERT INTO EMPLOYEE(?,?,?,?)");
+            st.setString(1,employee.getUsername());
+            st.setString(2,employee.getFirst_name());
+            st.setString(3,employee.getLast_name());
+            st.setInt(4,employee.getSalary());
+
+            st.executeUpdate();
 
             //Close all connections
             result.close();

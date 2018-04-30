@@ -6,7 +6,7 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojinputtext', 'ojs/ojlabel', 'ojs/ojbutton'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojinputtext', 'ojs/ojbutton'],
   function (oj, ko, $) {
 
     function CreateViewModel() {
@@ -16,7 +16,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/oj
       //Input Texts
       self.first_name = ko.observable("Ahmad");
       self.last_name = ko.observable("Abdo");
-      self.username = ko.observable("ahmad123");
+      self.username = ko.observable("ahmad");
       self.salary = ko.observable(1000);
 
       //Create button -> POST method

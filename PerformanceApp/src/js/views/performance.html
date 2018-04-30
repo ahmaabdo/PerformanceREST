@@ -6,10 +6,11 @@
   <h1>New Employee Performance</h1>
 
   <div>
+
     <!-- Input Text -->
-    <oj-label for="text-input">Username</oj-label>
-    <oj-input-text id="text-input" value="{{username}}" clear-icon="conditional"></oj-input-text>
-    <oj-button class='oj-button-confirm' on-oj-action='[[getPerformances]]'>Get Performances</oj-button>
+    <oj-input-text id="text-input" value="{{username}}" clear-icon="conditional" placeholder="Search for Employee"></oj-input-text>
+    <oj-button class="oj-button-primary" chroming='full' on-oj-action='[[searchPerformances]]'>
+      <span slot="startIcon" class="oj-fwk-icon oj-fwk-icon-magnifier"></span>Search</oj-button>
 
     <h5>Job Knowlage</h5>
     <oj-rating-gauge value="{{jobKnow}}" style="width:120px;height:25px;"></oj-rating-gauge>
@@ -29,7 +30,27 @@
     <br>
     <br>
     <!-- Button Create performance -->
-    <oj-button class='oj-button-confirm' on-oj-action='[[buttonCreatePerformance]]'>Create Performance</oj-button>
+    <oj-button class='oj-button-confirm' on-oj-action='[[buttonCreatePerformance]]'>Update Performance</oj-button>
+
+    <!-- Input date time for review Date-->
+    <div class="review-date">
+      <h5>Review Date</h5>
+      <oj-input-date-time value='{{reviewDate}} '></oj-input-date-time>
+    </div>
+
+    <div class="per-avrg-text">
+      <h5>Average performance</h5>
+      <oj-text-area value='{{performanceAvrg}}' readonly>
+      </oj-text-area>
+    </div>
+
+    <div>
+
+      <oj-chart id="barChart" type="bar" stack="[[stackValue]]" series="[[barSeriesValue]]"
+        groups="[[barGroupsValue]]" animation-on-data-change="auto" hover-behavior="dim" style="max-width:500px;width:100%;height:350px;">
+      </oj-chart>
+
+    </div>
   </div>
 
 

@@ -8,6 +8,7 @@ public class Performance {
 
     private String comments;
     private String username;
+    private String review_date;
     private int job_know;
     private int work_quality;
     private int attitude;
@@ -17,9 +18,10 @@ public class Performance {
     public Performance() {
     }
 
-    public Performance(String comments, String username, int job_know, int work_quality, int attitude, int com_skills, int dependability) {
+    public Performance(String comments, String username, String review_date, int job_know, int work_quality, int attitude, int com_skills, int dependability) {
         this.comments = comments;
         this.username = username;
+        this.review_date = review_date;
         this.job_know = job_know;
         this.work_quality = work_quality;
         this.attitude = attitude;
@@ -41,6 +43,14 @@ public class Performance {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getReview_date() {
+        return review_date;
+    }
+
+    public void setReview_date(String review_date) {
+        this.review_date = review_date;
     }
 
     public int getJob_know() {

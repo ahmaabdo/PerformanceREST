@@ -6,7 +6,7 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojinputtext', 'ojs/ojlabel', 'ojs/ojbutton',],
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojinputtext', 'ojs/ojbutton',],
   function (oj, ko, $) {
 
     function UpdateViewModel() {
@@ -14,7 +14,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/oj
       var urlRoot = "http://localhost:8080/webapi/employees/";
 
       //Input Texts for Update
-      self.usernameUpdate = ko.observable("ahmad2");
+      self.usernameUpdate = ko.observable("ahmad");
       self.firstNameUpdate = ko.observable("Ahmad");
       self.lastNameUpdate = ko.observable("Mohamed");
       self.emp_no = ko.observable();

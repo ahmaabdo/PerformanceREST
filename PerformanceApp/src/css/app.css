@@ -12,3 +12,20 @@ oj-module:not(.oj-complete) {
 oj-module {
   display: block; 
 }
+
+h5{
+  font-size:20px
+}
+
+.review-date{
+  float: right;
+    bottom: 500px;
+    right: 350px;
+    position: relative;
+}
+.per-avrg-text{
+  float: right;
+    bottom: 300px;
+    right: 160px;
+    position: relative;
+} 

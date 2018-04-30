@@ -84,6 +84,7 @@ public class PerformanceService {
                 int workQuality = result.getInt("WORK_QUALITY");
                 int dependability = result.getInt("DEPENDABILITY");
                 String comment = result.getString("COMMENTS");
+                String reviewDate = result.getString("REVIEW_DATE");
 
                 performance.setAttitude(attitude);
                 performance.setCom_skills(comSkills);
@@ -91,6 +92,7 @@ public class PerformanceService {
                 performance.setWork_quality(workQuality);
                 performance.setDependability(dependability);
                 performance.setComments(comment);
+                performance.setReview_date(reviewDate);
             }
             result.close();
             statement.close();

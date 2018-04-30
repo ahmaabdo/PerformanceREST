@@ -6,7 +6,8 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojinputtext', 'ojs/ojgauge', 'ojs/ojbutton'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojinputtext', 'ojs/ojchart',
+  'ojs/ojgauge', 'ojs/ojbutton', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata', 'ojs/ojselectcombobox', 'ojs/ojarraydataprovider', 'ojs/ojselectcombobox'],
   function (oj, ko, $) {
 
     function PerfomanceViewModel() {
@@ -14,26 +15,46 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/oj
       var urlRoot = "http://localhost:8080/webapi/performances/";
 
       //Observables
-      self.username = ko.observable("ahmad");
+      self.username = ko.observable();
       self.comments = ko.observable("Comments about Employee");
       self.jobKnow = ko.observable(0);
       self.workQuality = ko.observable(0);
       self.attitude = ko.observable(0);
       self.comSkills = ko.observable(0);
       self.dependability = ko.observable(0);
+      self.reviewDate = ko.observable();
+      self.performanceAvrg = ko.observable();
 
+      self.stackValue = ko.observable('off');
+
+      /* chart data */
+      var barSeries = [{ name: "Series 1", items: [42, 34] },
+      { name: "Series 2", items: [55, 30] },
+      { name: "Series 3", items: [36, 50] },
+      { name: "Series 4", items: [22, 46] },
+      { name: "Series 5", items: [22, 46] }];
+
+      var barGroups = ["Group A"];
+
+      self.barSeriesValue = ko.observableArray(barSeries);
+      self.barGroupsValue = ko.observableArray(barGroups);
 
       //Fetch data via GET method
-      self.getPerformances = function () {
+      self.searchPerformances = function () {
 
         $.getJSON((urlRoot + self.username()), function (result) {
           $.each(result, function () {
+
             self.jobKnow(result.job_know),
               self.workQuality(result.work_quality),
               self.attitude(result.attitude),
               self.comSkills(result.com_skills),
               self.dependability(result.dependability),
-              self.comments(result.comments)
+              self.comments(result.comments),
+              self.reviewDate(result.review_date),
+
+              self.performanceAvrg(
+                (result.job_know + result.work_quality + result.attitude + result.com_skills + result.dependability) / 5 + "/5")
 
           });
         });
@@ -47,6 +68,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/oj
           url: urlRoot,
           dataType: "json",
           data: JSON.stringify({
+
             username: self.username(),
             job_know: self.jobKnow(),
             work_quality: self.workQuality(),
@@ -54,6 +76,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise', 'ojs/oj
             com_skills: self.comSkills(),
             dependability: self.dependability(),
             comments: self.comments()
+
           }),
           headers: {
             'Accept': 'application/json',
