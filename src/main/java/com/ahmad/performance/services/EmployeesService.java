@@ -1,6 +1,5 @@
 package com.ahmad.performance.services;
 
-import com.ahmad.performance.db.Database;
 import com.ahmad.performance.models.Employee;
 
 import java.sql.Connection;
@@ -9,15 +8,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class EmployeesService {
 
-    private Map<String, Employee> employees = Database.getEmployee();
-
+    // private Map<String, Employee> employees = Database.getEmployee();
 
     private ArrayList<Employee> employeesList = new ArrayList<>();
-
 
     private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
     private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -91,6 +87,7 @@ public class EmployeesService {
             connection.close();
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return employee;
@@ -105,7 +102,7 @@ public class EmployeesService {
                     + employee.getLast_name() + "', '"
                     + employee.getSalary() + "' )";
 
-            result = statement.executeQuery(insertTableSQL);
+                result = statement.executeQuery(insertTableSQL);
 
             //Close all connections
             result.close();
@@ -113,6 +110,7 @@ public class EmployeesService {
             connection.close();
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return employee;
@@ -120,11 +118,12 @@ public class EmployeesService {
 
     public Employee updateEmployee(Employee employee) {
         try {
-            String updateTableSQL = "UPDATE EMPLOYEE SET "
+
+            String updateTableSQL = "UPDATE AHMAD.EMPLOYEE SET "
                     + "FIRST_NAME = '" + employee.getFirst_name() + "', "
                     + "LAST_NAME =  '" + employee.getLast_name() + "', "
-                    + "SALARY =  '" + employee.getSalary() + "', "
-                    + "WHERE USERNAME = '" + employee.getUsername() + "';";
+                    + "SALARY =  '" + employee.getSalary() + "' "
+                    + "WHERE USERNAME = '" + employee.getUsername() + "'";
 
             result = statement.executeQuery(updateTableSQL);
 
@@ -134,6 +133,7 @@ public class EmployeesService {
             connection.close();
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return employee;
@@ -145,7 +145,7 @@ public class EmployeesService {
             // int update = statement.executeUpdate("delete from ahmad.employee where username = 'ahmad123'");
             //System.out.println(update);
 
-            result = statement.executeQuery("delete from ahmad.employee where username = " + "'" + username + "'");
+            result = statement.executeQuery("DELETE FROM AHMAD.EMPLOYEE WHERE USERNAME = " + "'" + username + "'");
 
             statement.close();
             connection.close();

@@ -97,6 +97,7 @@ public class PerformanceService {
             connection.close();
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return performance;
@@ -104,18 +105,82 @@ public class PerformanceService {
 
     public Performance addPerformance(Performance performance) {
 
-        performances.put(performance.getUsername(), performance);
+        try {
+           /* String insertTableSQL = "INSERT INTO PERFORMANCE"
+                    + "(ATTITUDE, COM_SKILLS, JOB_KNOW, WORK_QUALITY, DEPENDABILITY, COMMENTS) " + "VALUES" + "( '"
+                    + performance.getAttitude() + "', '"
+                    + performance.getCom_skills() + "', '"
+                    + performance.getJob_know() + "', '"
+                    + performance.getWork_quality() + "', '"
+                    + performance.getDependability() + "', '"
+                    + performance.getComments() + "' )";*/
+
+            String insertTableSQL = "UPDATE AHMAD.PERFORMANCE SET "
+                    + "ATTITUDE = '" + performance.getAttitude() + "', "
+                    + "COM_SKILLS = '" + performance.getCom_skills() + "', "
+                    + "JOB_KNOW = '" + performance.getJob_know() + "', "
+                    + "WORK_QUALITY = '" + performance.getWork_quality() + "', "
+                    + "DEPENDABILITY = '" + performance.getDependability() + "', "
+                    + "COMMENTS =  '" + performance.getComments() + "' "
+                    + "WHERE USERNAME = '" + performance.getUsername() + "'";
+
+            result = statement.executeQuery(insertTableSQL);
+
+            //Close all connections
+            result.close();
+            statement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return performance;
     }
 
     public Performance updatePerformance(Performance performance) {
+        try {
 
-        performances.put(performance.getUsername(), performance);
+            String updateTableSQL = "UPDATE AHMAD.PERFORMANCE SET "
+                    + "ATTITUDE = '" + performance.getAttitude() + "', "
+                    + "COM_SKILLS = '" + performance.getCom_skills() + "', "
+                    + "JOB_KNOW = '" + performance.getJob_know() + "', "
+                    + "WORK_QUALITY = '" + performance.getWork_quality() + "', "
+                    + "DEPENDABILITY = '" + performance.getDependability() + "', "
+                    + "COMMENTS =  '" + performance.getComments() + "' "
+                    + "WHERE USERNAME = '" + performance.getUsername() + "'";
+
+            result = statement.executeQuery(updateTableSQL);
+
+            //Close all connections
+            result.close();
+            statement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return performance;
     }
 
     public Performance removePerformance(String username) {
+        Performance performance = new Performance();
 
-        return performances.remove(username);
+        try {
+            // int update = statement.executeUpdate("delete from ahmad.employee where username = 'ahmad123'");
+            //System.out.println(update);
+
+            result = statement.executeQuery("DELETE FROM AHMAD.PERFORMANCE WHERE USERNAME = " + "'" + username + "'");
+
+            statement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return performance;
     }
+
 }
