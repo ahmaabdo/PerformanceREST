@@ -1,0 +1,27 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Update Employee Info</h1>
+  <div>
+
+    <div>
+      <!-- Input number for ID -->
+      <oj-label for="text-input">Username</oj-label>
+      <oj-input-text id="text-input" value="{{usernameUpdate}}" clear-icon="conditional"></oj-input-text>
+      <!-- Delete button -->
+      <oj-button class='oj-button-confirm' on-oj-action='[[buttonDelete]]'>Delete</oj-button>
+      <!-- Input Text -->
+      <oj-label for="text-input">First name</oj-label>
+      <oj-input-text id="text-input" value="{{firstNameUpdate}}" clear-icon="conditional"></oj-input-text>
+      <oj-label for="text-input">Last name</oj-label>
+      <oj-input-text id="text-input" value="{{lastNameUpdate}}" clear-icon="conditional"></oj-input-text>
+      <oj-label for="text-input">Salary</oj-label>
+      <oj-input-text id="text-input" value="{{salaryUpdate}}" clear-icon="conditional"></oj-input-text>
+      <!-- Button Send message -->
+      <oj-button class='oj-button-confirm' on-oj-action='[[buttonSendUpdate]]'>Update</oj-button>
+    </div>
+
+  </div>
+</div>

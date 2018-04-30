@@ -1,0 +1,23 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Create new Employee account</h1>
+  <div>
+
+    <!-- Input Text -->
+    <oj-label for="text-input">First name</oj-label>
+    <oj-input-text id="text-input" value="{{first_name}}" clear-icon="conditional"></oj-input-text>
+    <oj-label for="text-input">Second name</oj-label>
+    <oj-input-text id="text-input" value="{{last_name}}" clear-icon="conditional"></oj-input-text>
+    <oj-label for="text-input">Username</oj-label>
+    <oj-input-text id="text-input" value="{{username}}" clear-icon="conditional"></oj-input-text>
+    <oj-label for="text-input">Salary</oj-label>
+    <oj-input-text id="text-input" value="{{salary}}" clear-icon="conditional"></oj-input-text>
+    <!-- Button Send message -->
+
+    <oj-button class='oj-button-confirm' on-oj-action='[[buttonSend]]'>Create</oj-button>
+
+  </div>
+</div>

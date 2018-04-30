@@ -1,0 +1,36 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>New Employee Performance</h1>
+
+  <div>
+    <!-- Input Text -->
+    <oj-label for="text-input">Username</oj-label>
+    <oj-input-text id="text-input" value="{{username}}" clear-icon="conditional"></oj-input-text>
+    <oj-button class='oj-button-confirm' on-oj-action='[[getPerformances]]'>Get Performances</oj-button>
+
+    <h5>Job Knowlage</h5>
+    <oj-rating-gauge value="{{jobKnow}}" style="width:120px;height:25px;"></oj-rating-gauge>
+    <h5>Work Quality</h5>
+    <oj-rating-gauge value="{{workQuality}}" style="width:120px;height:25px;"></oj-rating-gauge>
+    <h5>Attitude</h5>
+    <oj-rating-gauge value="{{attitude}}" style="width:120px;height:25px;"></oj-rating-gauge>
+    <h5>Communication Skills</h5>
+    <oj-rating-gauge value="{{comSkills}}" style="width:120px;height:25px;"></oj-rating-gauge>
+    <h5>Debendability</h5>
+    <oj-rating-gauge value="{{dependability}}" style="width:120px;height:25px;"></oj-rating-gauge>
+
+    <!-- Input Text for comments-->
+    <h5>Comment</h5>
+    <oj-input-text id="text-input" value="{{comments}}" clear-icon="conditional" style="max-width:30em"></oj-input-text>
+
+    <br>
+    <br>
+    <!-- Button Create performance -->
+    <oj-button class='oj-button-confirm' on-oj-action='[[buttonCreatePerformance]]'>Create Performance</oj-button>
+  </div>
+
+
+</div>
