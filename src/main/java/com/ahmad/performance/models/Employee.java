@@ -5,8 +5,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Employee {
 
-
-    private long emp_no;
     private String first_name;
     private String last_name;
     private String username;

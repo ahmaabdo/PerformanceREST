@@ -33,6 +33,7 @@ public class EmployeesResource {
         return empService.getAllEmployees();
     }
 
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{employeeUserName}")
